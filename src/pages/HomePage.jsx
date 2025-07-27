@@ -2,33 +2,30 @@ import HeroSection from '../components/HeroSection';
 import { Link } from 'react-router-dom';
 
 const HomePage = () => {
-  const featuredProducts = [
+  const featuredBuilds = [
     {
       id: 1,
-      name: "Premium Brake System",
-      category: "PERFORMANCE PARTS",
-      description: "High-performance ceramic brake pads and rotors for superior stopping power",
-      price: "$299.99",
+      name: "Street Performance Build",
+      category: "BRAKES & SUSPENSION",
+      description: "Complete brake system upgrade with ceramic pads and performance suspension",
       image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      isNew: true
+      featured: true
     },
     {
       id: 2,
-      name: "LED Headlight System", 
+      name: "Premium Lighting Conversion", 
       category: "LIGHTING",
-      description: "Ultra-bright LED conversion kit for enhanced visibility and style",
-      price: "$199.99",
+      description: "Full LED headlight conversion with custom styling and enhanced visibility",
       image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      isNew: false
+      featured: false
     },
     {
       id: 3,
-      name: "Carbon Fiber Spoiler",
-      category: "ACCESSORIES", 
-      description: "Lightweight carbon fiber rear spoiler for enhanced aerodynamics",
-      price: "$549.99",
+      name: "Aerodynamic Enhancement",
+      category: "BODY ACCESSORIES", 
+      description: "Carbon fiber spoiler installation with custom body kit integration",
       image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      isNew: true
+      featured: true
     }
   ];
 
@@ -39,7 +36,7 @@ const HomePage = () => {
       description: "BUILT STRONGER AND MADE TO LAST",
       image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       link: "/parts",
-      buttonText: "SHOP BRAKE SYSTEMS"
+      buttonText: "VIEW BRAKE BUILDS"
     },
     {
       name: "WINDOW TINTING",
@@ -47,7 +44,15 @@ const HomePage = () => {
       description: "THE ULTIMATE PROTECTION UPGRADE", 
       image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       link: "/tint",
-      buttonText: "BOOK TINTING"
+      buttonText: "VIEW TINTING GALLERY"
+    },
+    {
+      name: "CUSTOM ACCESSORIES",
+      subtitle: "PERSONALIZATION EXPERTS",
+      description: "UNIQUE STYLING FOR EVERY VEHICLE",
+      image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      link: "/accessories", 
+      buttonText: "SEE ACCESSORIES"
     }
   ];
 
@@ -60,14 +65,13 @@ const HomePage = () => {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-sm font-medium tracking-[0.25em] uppercase text-gray-500 mb-6">
-            PREMIUM AUTOMOTIVE SOLUTIONS
+            AUTOMOTIVE EXCELLENCE SHOWCASE
           </h2>
           <h3 className="text-4xl md:text-5xl font-bold text-black mb-8 leading-tight">
-            EXPLORE OUR CATEGORIES
+            FEATURED BUILDS
           </h3>
           <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-            From high-performance parts to premium accessories, discover everything you need to transform your vehicle. 
-            Each category features carefully curated products designed for excellence and built to last.
+            Discover our latest custom builds and premium upgrades. Each project showcases our expertise in transforming vehicles with carefully selected parts, professional installation, and attention to detail.
           </p>
         </div>
       </section>
@@ -105,37 +109,36 @@ const HomePage = () => {
         </section>
       ))}
 
-      {/* New Arrivals Section */}
+      {/* Featured Builds Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-black font-bold text-3xl md:text-4xl tracking-widest uppercase text-center mb-16">
-            NEW ARRIVALS
+            LATEST BUILDS
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProducts.map((product) => (
-              <div key={product.id} className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+            {featuredBuilds.map((build) => (
+              <div key={build.id} className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 group">
                 <div className="relative overflow-hidden">
                   <img 
-                    src={product.image} 
-                    alt={product.name} 
+                    src={build.image} 
+                    alt={build.name} 
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" 
                   />
-                  {product.isNew && (
-                    <span className="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 text-xs font-bold uppercase tracking-wide">
-                      NEW
+                  {build.featured && (
+                    <span className="absolute top-4 left-4 bg-black text-white px-3 py-1 text-xs font-bold uppercase tracking-wide">
+                      FEATURED
                     </span>
                   )}
                 </div>
                 <div className="p-6">
                   <p className="text-xs font-medium uppercase tracking-widest text-gray-500 mb-2">
-                    {product.category}
+                    {build.category}
                   </p>
-                  <h3 className="text-xl font-bold mb-3 text-black">{product.name}</h3>
-                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">{product.description}</p>
-                  <div className="flex justify-between items-center">
-                    <span className="text-2xl font-bold text-black">{product.price}</span>
+                  <h3 className="text-xl font-bold mb-3 text-black">{build.name}</h3>
+                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">{build.description}</p>
+                  <div className="flex justify-center">
                     <button className="px-6 py-2 bg-black text-white text-xs font-bold uppercase tracking-wide hover:bg-gray-800 transition-colors duration-300">
-                      ADD TO CART
+                      SEE DETAILS
                     </button>
                   </div>
                 </div>
@@ -147,30 +150,36 @@ const HomePage = () => {
               to="/parts"
               className="px-8 py-3 border-2 border-black text-black font-semibold text-sm tracking-[0.2em] uppercase hover:bg-black hover:text-white transition-all duration-300"
             >
-              SHOP ALL
+              VIEW ALL BUILDS
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Newsletter Section */}
+      {/* Contact Section */}
       <section className="py-16 bg-black text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-white font-bold text-2xl md:text-3xl tracking-widest uppercase mb-4">
-            STAY IN TOUCH
+            GET IN TOUCH
           </h2>
           <p className="text-gray-300 mb-8 text-sm">
-            Subscribe to get special offers, new product announcements and more.
+            Ready to transform your vehicle? Contact us to discuss your project or follow our latest builds.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <input 
-              type="email" 
-              placeholder="ENTER YOUR EMAIL"
-              className="flex-1 px-4 py-3 bg-transparent border border-white text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-white uppercase text-xs tracking-wide"
-            />
-            <button className="px-8 py-3 bg-white text-black font-bold text-xs uppercase tracking-widest hover:bg-gray-200 transition-colors duration-300">
-              SUBSCRIBE
-            </button>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <Link 
+              to="/contact"
+              className="px-8 py-3 bg-white text-black font-bold text-xs uppercase tracking-widest hover:bg-gray-200 transition-colors duration-300"
+            >
+              CONTACT US
+            </Link>
+            <a 
+              href="https://instagram.com/twinsautogarage" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-8 py-3 border border-white text-white font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300"
+            >
+              FOLLOW US 📷
+            </a>
           </div>
         </div>
       </section>

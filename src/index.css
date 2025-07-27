@@ -11,14 +11,6 @@
 }
 
 @layer components {
-  .section-title {
-    @apply text-3xl md:text-4xl font-black text-center mb-16 tracking-wider uppercase;
-  }
-  
-  .product-card {
-    @apply bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2;
-  }
-  
   .category-card {
     @apply relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500;
   }

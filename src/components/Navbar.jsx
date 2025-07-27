@@ -50,7 +50,7 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navbarBg}`}>
-      <div className="flex justify-between items-center px-6 py-4">
+      <div className="flex justify-between items-center px-6 py-4 min-h-[72px]">
         {/* Logo */}
         <Link to="/" className={`font-bold text-lg tracking-wider transition-colors duration-300 ${textColor} hover:opacity-80`} style={forceTextColor}>
           TWINS AUTO GARAGE
@@ -77,15 +77,21 @@ const Navbar = () => {
 
         {/* Right Side Icons */}
         <div className="hidden lg:flex items-center space-x-6">
-          <button className={`text-xs font-medium tracking-widest uppercase transition-opacity duration-200 ${textColor} hover:opacity-70`} style={forceTextColor}>
-            LOGIN
-          </button>
           <button className={`text-lg transition-opacity duration-200 ${textColor} hover:opacity-70`} style={forceTextColor}>
             🔍
           </button>
-          <button className={`text-lg transition-opacity duration-200 ${textColor} hover:opacity-70`} style={forceTextColor}>
-            🛒
-          </button>
+          <a 
+            href="https://instagram.com/twinsautogarage" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className={`text-lg transition-opacity duration-200 ${textColor} hover:opacity-70`} 
+            style={forceTextColor}
+          >
+            �
+          </a>
+          <Link to="/contact" className={`text-xs font-medium tracking-widest uppercase transition-opacity duration-200 ${textColor} hover:opacity-70 px-4 py-2 border border-current`} style={forceTextColor}>
+            CONTACT
+          </Link>
         </div>
 
         {/* Mobile menu button */}
@@ -121,12 +127,17 @@ const Navbar = () => {
               CONTACT
             </Link>
             <div className="border-t pt-3 mt-3">
-              <button className="block text-black text-sm font-medium tracking-wide uppercase hover:opacity-70 mb-2">
-                LOGIN
-              </button>
-              <button className="block text-black text-sm font-medium tracking-wide uppercase hover:opacity-70">
-                CART 🛒
-              </button>
+              <a 
+                href="https://instagram.com/twinsautogarage" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block text-black text-sm font-medium tracking-wide uppercase hover:opacity-70 mb-2"
+              >
+                INSTAGRAM 📷
+              </a>
+              <Link to="/contact" className="block text-black text-sm font-medium tracking-wide uppercase hover:opacity-70">
+                CONTACT
+              </Link>
             </div>
           </div>
         </div>

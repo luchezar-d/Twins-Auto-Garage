@@ -62,7 +62,7 @@ const TintPage = () => {
       <section 
         className="bg-black text-white py-20" 
         style={{ 
-          marginTop: navbarHeight ? `${navbarHeight}px` : '72px'
+          marginTop: `${Math.max(navbarHeight, 72)}px` // Ensure minimum 72px margin
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,7 +75,7 @@ const TintPage = () => {
             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
               Professional window tinting services for ultimate protection, comfort, and style. Transform your vehicle today.
             </p>
-            <button className="btn-primary">
+            <button className="px-8 py-3 bg-red-500 text-white text-sm font-bold uppercase tracking-wide hover:bg-red-600 transition-colors duration-300">
               BOOK APPOINTMENT
             </button>
           </div>
@@ -85,7 +85,7 @@ const TintPage = () => {
       {/* Benefits Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="section-title">WHY CHOOSE PROFESSIONAL TINTING?</h2>
+          <h2 className="text-3xl md:text-4xl font-black text-center mb-16 tracking-wider uppercase">WHY CHOOSE PROFESSIONAL TINTING?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
               <div key={index} className="text-center">
@@ -103,7 +103,7 @@ const TintPage = () => {
       {/* Services Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="section-title">TINT PACKAGES</h2>
+          <h2 className="text-3xl md:text-4xl font-black text-center mb-16 tracking-wider uppercase">TINT PACKAGES</h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {tintServices.map((service) => (
               <div key={service.id} className="relative">
@@ -114,7 +114,7 @@ const TintPage = () => {
                     </span>
                   </div>
                 )}
-                <div className="product-card h-full">
+                <div className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
                   <div className="relative">
                     <img src={service.image} alt={service.name} className="w-full h-48 object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
@@ -140,7 +140,7 @@ const TintPage = () => {
                       <div className="flex justify-between items-center mb-4">
                         <span className="text-2xl font-bold">{service.price}</span>
                       </div>
-                      <button className="btn-primary w-full">
+                      <button className="w-full px-6 py-3 bg-black text-white text-sm font-bold uppercase tracking-wide hover:bg-gray-800 transition-colors duration-300">
                         CHOOSE PACKAGE
                       </button>
                     </div>
@@ -155,7 +155,7 @@ const TintPage = () => {
       {/* Process Section */}
       <section className="py-20 bg-black text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="section-title text-white">OUR INSTALLATION PROCESS</h2>
+          <h2 className="text-3xl md:text-4xl font-black text-center mb-16 tracking-wider uppercase text-white">OUR INSTALLATION PROCESS</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
               { step: "01", title: "CONSULTATION", desc: "Discuss your needs and select the perfect tint" },
@@ -179,10 +179,10 @@ const TintPage = () => {
           <h2 className="text-3xl font-bold mb-4">READY TO UPGRADE?</h2>
           <p className="text-gray-600 mb-8">Schedule your professional window tinting appointment today.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn-primary">
+            <button className="px-8 py-3 bg-red-500 text-white text-sm font-bold uppercase tracking-wide hover:bg-red-600 transition-colors duration-300">
               BOOK APPOINTMENT
             </button>
-            <button className="btn-secondary">
+            <button className="px-8 py-3 border-2 border-black text-black text-sm font-bold uppercase tracking-wide hover:bg-black hover:text-white transition-all duration-300">
               GET QUOTE
             </button>
           </div>
